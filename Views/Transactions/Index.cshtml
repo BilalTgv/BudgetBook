@@ -1,0 +1,48 @@
+@model IEnumerable<BudgetBook.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Meine Buchungen";
+}
+
+<h1>Meine Buchungen</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Neue Buchung</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>du hast noch keine buchungen erfasst, leg gleich die erste an</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Typ</th>
+                <th>Kategorie</th>
+                <th>Beschreibung</th>
+                <th>Betrag</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.BookingDate.ToString("dd.MM.yyyy")</td>
+                    <td>@(item.Type == BudgetBook.Models.TransactionType.Income ? "Einnahme" : "Ausgabe")</td>
+                    <td>@item.Category?.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Amount.ToString("N2") €</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">details</a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id">bearbeiten</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">löschen</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,50 @@
+@model BudgetBook.ViewModels.TransactionFormViewModel
+
+@{
+    ViewData["Title"] = "Neue Buchung";
+}
+
+<h1>Neue Buchung</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type" class="form-select" asp-items="Html.GetEnumSelectList<BudgetBook.Models.TransactionType>()"></select>
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Amount" class="form-label">Betrag</label>
+        <input asp-for="Amount" type="number" step="0.01" min="0.01" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="BookingDate" class="form-label">Datum</label>
+        <input asp-for="BookingDate" class="form-control" />
+        <span asp-validation-for="BookingDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="CategoryId" class="form-label">Kategorie</label>
+        <select asp-for="CategoryId" class="form-select" asp-items="Model.CategoryOptions">
+            <option value="">-- bitte auswählen --</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Description" class="form-label">Beschreibung</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Speichern</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

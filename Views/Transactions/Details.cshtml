@@ -1,0 +1,27 @@
+@model BudgetBook.Models.Transaction
+
+@{
+    ViewData["Title"] = "Buchungsdetails";
+}
+
+<h1>Buchungsdetails</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Typ</dt>
+    <dd class="col-sm-9">@(Model.Type == BudgetBook.Models.TransactionType.Income ? "Einnahme" : "Ausgabe")</dd>
+
+    <dt class="col-sm-3">Betrag</dt>
+    <dd class="col-sm-9">@Model.Amount.ToString("N2") €</dd>
+
+    <dt class="col-sm-3">Datum</dt>
+    <dd class="col-sm-9">@Model.BookingDate.ToString("dd.MM.yyyy")</dd>
+
+    <dt class="col-sm-3">Kategorie</dt>
+    <dd class="col-sm-9">@Model.Category?.Name</dd>
+
+    <dt class="col-sm-3">Beschreibung</dt>
+    <dd class="col-sm-9">@Model.Description</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Bearbeiten</a>
+<a asp-action="Index" class="btn btn-secondary">Zurück zur Liste</a>
