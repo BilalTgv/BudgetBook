@@ -1,0 +1,119 @@
+@model BudgetBook.ViewModels.StatisticsViewModel
+
+@{
+    ViewData["Title"] = "Statistik";
+}
+
+<h1>Statistik</h1>
+
+<form asp-action="Index" method="get" class="row g-2 mb-4">
+    <div class="col-auto">
+        <label class="form-label">Von</label>
+        <input type="date" name="from" value="@Model.From?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Bis</label>
+        <input type="date" name="to" value="@Model.To?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Typ</label>
+        <select name="type" class="form-select">
+            <option value="">alle</option>
+            <option value="@BudgetBook.Models.TransactionType.Income" selected="@(Model.Type == BudgetBook.Models.TransactionType.Income)">Einnahme</option>
+            <option value="@BudgetBook.Models.TransactionType.Expense" selected="@(Model.Type == BudgetBook.Models.TransactionType.Expense)">Ausgabe</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Kategorie</label>
+        <select name="categoryId" asp-items="Model.CategoryOptions" class="form-select">
+        </select>
+    </div>
+    <div class="col-auto align-self-end">
+        <button type="submit" class="btn btn-outline-primary">Filtern</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Zurücksetzen</a>
+    </div>
+</form>
+
+@if (!Model.HasData)
+{
+    <p>für diesen filter gibt es keine buchungen</p>
+}
+else
+{
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Einnahmen</h6>
+                    <p class="fs-4 text-success">@Model.TotalIncome.ToString("N2") €</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Ausgaben</h6>
+                    <p class="fs-4 text-danger">@Model.TotalExpense.ToString("N2") €</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Saldo</h6>
+                    <p class="fs-4 @(Model.Balance < 0 ? "text-danger" : "text-success")">@Model.Balance.ToString("N2") €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Ausgaben nach Kategorie</h2>
+    @if (!Model.ExpensesByCategory.Any())
+    {
+        <p>keine ausgaben in diesem zeitraum</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Kategorie</th>
+                    <th>Summe</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ExpensesByCategory)
+                {
+                    <tr>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Amount.ToString("N2") €</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <h2>Monatsübersicht</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Monat</th>
+                <th>Einnahmen</th>
+                <th>Ausgaben</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MonthlyOverview)
+            {
+                var monatsSaldo = item.Income - item.Expense;
+                <tr>
+                    <td>@item.MonthLabel</td>
+                    <td>@item.Income.ToString("N2") €</td>
+                    <td>@item.Expense.ToString("N2") €</td>
+                    <td class="@(monatsSaldo < 0 ? "text-danger" : "")">@monatsSaldo.ToString("N2") €</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

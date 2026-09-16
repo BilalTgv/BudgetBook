@@ -3,26 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\models\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:models\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\viewmodels\\transactionformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:viewmodels\\transactionformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\views\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:views\\transactions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\views\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:views\\transactions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -34,76 +14,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TransactionFormViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\ViewModels\\TransactionFormViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\TransactionFormViewModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\ViewModels\\TransactionFormViewModel.cs",
-              "RelativeToolTip": "ViewModels\\TransactionFormViewModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T13:10:52.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TransactionType.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Models\\TransactionType.cs",
-              "RelativeDocumentMoniker": "Models\\TransactionType.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Models\\TransactionType.cs",
-              "RelativeToolTip": "Models\\TransactionType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T13:10:20.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Transactions\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Transactions\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Transactions\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Transactions\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-16T13:06:07.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Transactions\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Transactions\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Transactions\\Create.cshtml",
-              "RelativeToolTip": "Views\\Transactions\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-16T13:04:07.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-16T12:57:03.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

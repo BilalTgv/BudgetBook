@@ -1,4 +1,4 @@
-@model IEnumerable<BudgetBook.Models.Transaction>
+@model BudgetBook.ViewModels.TransactionListViewModel
 
 @{
     ViewData["Title"] = "Meine Buchungen";
@@ -10,9 +10,37 @@
     <a asp-action="Create" class="btn btn-primary">Neue Buchung</a>
 </p>
 
-@if (!Model.Any())
+<form asp-action="Index" method="get" class="row g-2 mb-4">
+    <div class="col-auto">
+        <label class="form-label">Von</label>
+        <input type="date" name="from" value="@Model.From?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Bis</label>
+        <input type="date" name="to" value="@Model.To?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Typ</label>
+        <select name="type" class="form-select">
+            <option value="">alle</option>
+            <option value="@BudgetBook.Models.TransactionType.Income" selected="@(Model.Type == BudgetBook.Models.TransactionType.Income)">Einnahme</option>
+            <option value="@BudgetBook.Models.TransactionType.Expense" selected="@(Model.Type == BudgetBook.Models.TransactionType.Expense)">Ausgabe</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <label class="form-label">Kategorie</label>
+        <select name="categoryId" asp-items="Model.CategoryOptions" class="form-select">
+        </select>
+    </div>
+    <div class="col-auto align-self-end">
+        <button type="submit" class="btn btn-outline-primary">Filtern</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Zurücksetzen</a>
+    </div>
+</form>
+
+@if (!Model.Transactions.Any())
 {
-    <p>du hast noch keine buchungen erfasst, leg gleich die erste an</p>
+    <p>keine buchungen gefunden, die zu deinem filter passen</p>
 }
 else
 {
@@ -28,7 +56,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Transactions)
             {
                 <tr>
                     <td>@item.BookingDate.ToString("dd.MM.yyyy")</td>

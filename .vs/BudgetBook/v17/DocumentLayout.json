@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 4\\BudgetBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 2\\budgetbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 4\\budgetbook\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|c:\\users\\admin\\downloads\\block\\aufgabe 4\\budgetbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CB212F8-038B-A455-0C04-37C2A5A7A0DE}|BudgetBook.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,10 +23,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 4\\BudgetBook\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 4\\BudgetBook\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-16T13:54:00.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 4\\BudgetBook\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 2\\BudgetBook\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\BLOCK\\Aufgabe 4\\BudgetBook\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

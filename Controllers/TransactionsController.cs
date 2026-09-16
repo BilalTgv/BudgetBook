@@ -24,18 +24,53 @@ namespace BudgetBook.Controllers
 
         // GET: Transactions
         // zeigt nur die buchungen vom eingeloggten user, sortiert nach
-        // datum absteigend, wie es im projektauftrag verlangt wird
-        public async Task<IActionResult> Index()
+        // datum absteigend, kann zusätzlich nach zeitraum, typ und
+        // kategorie gefiltert werden (alles optional über die url)
+        public async Task<IActionResult> Index(DateTime? from, DateTime? to, TransactionType? type, int? categoryId)
         {
             var userId = _userManager.GetUserId(User);
 
-            var transactions = await _context.Transactions
+            var query = _context.Transactions
                 .Include(t => t.Category)
-                .Where(t => t.UserId == userId)
+                .Where(t => t.UserId == userId);
+
+            if (from.HasValue)
+            {
+                query = query.Where(t => t.BookingDate >= from.Value.Date);
+            }
+
+            if (to.HasValue)
+            {
+                // bis-datum soll inklusive sein, darum bis zum nächsten tag
+                var toExclusive = to.Value.Date.AddDays(1);
+                query = query.Where(t => t.BookingDate < toExclusive);
+            }
+
+            if (type.HasValue)
+            {
+                query = query.Where(t => t.Type == type.Value);
+            }
+
+            if (categoryId.HasValue)
+            {
+                query = query.Where(t => t.CategoryId == categoryId.Value);
+            }
+
+            var transactions = await query
                 .OrderByDescending(t => t.BookingDate)
                 .ToListAsync();
 
-            return View(transactions);
+            var vm = new TransactionListViewModel
+            {
+                Transactions = transactions,
+                From = from,
+                To = to,
+                Type = type,
+                CategoryId = categoryId,
+                CategoryOptions = await _context.GetCategoryOptionsWithEmptyAsync()
+            };
+
+            return View(vm);
         }
 
         // GET: Transactions/Details/5
@@ -68,7 +103,7 @@ namespace BudgetBook.Controllers
             var vm = new TransactionFormViewModel
             {
                 BookingDate = DateTime.Today,
-                CategoryOptions = await GetCategoryOptionsAsync()
+                CategoryOptions = await _context.GetCategoryOptionsAsync()
             };
             return View(vm);
         }
@@ -82,7 +117,7 @@ namespace BudgetBook.Controllers
 
             if (!ModelState.IsValid)
             {
-                vm.CategoryOptions = await GetCategoryOptionsAsync();
+                vm.CategoryOptions = await _context.GetCategoryOptionsAsync();
                 return View(vm);
             }
 
@@ -131,7 +166,7 @@ namespace BudgetBook.Controllers
                 Type = transaction.Type,
                 Description = transaction.Description,
                 CategoryId = transaction.CategoryId,
-                CategoryOptions = await GetCategoryOptionsAsync()
+                CategoryOptions = await _context.GetCategoryOptionsAsync()
             };
 
             return View(vm);
@@ -163,7 +198,7 @@ namespace BudgetBook.Controllers
 
             if (!ModelState.IsValid)
             {
-                vm.CategoryOptions = await GetCategoryOptionsAsync();
+                vm.CategoryOptions = await _context.GetCategoryOptionsAsync();
                 return View(vm);
             }
 
@@ -221,24 +256,6 @@ namespace BudgetBook.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-        }
-
-        // baut die liste für das kategorie dropdown, mit dem typ dahinter
-        // damit man im formular sieht ob es eine einnahme oder ausgabe kategorie ist
-        private async Task<List<SelectListItem>> GetCategoryOptionsAsync()
-        {
-            var categories = await _context.Categories
-                .Where(c => c.IsActive)
-                .OrderBy(c => c.Name)
-                .ToListAsync();
-
-            return categories
-                .Select(c => new SelectListItem
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Name + (c.Type == TransactionType.Income ? " (einnahme)" : " (ausgabe)")
-                })
-                .ToList();
         }
 
         // geschäftsregel aus dem projektauftrag: eine ausgabe darf nur eine
